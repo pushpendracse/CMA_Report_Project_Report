@@ -40,9 +40,9 @@ export const sidebarMenu = [
 
 export function AppSidebar() {
   return (
-    <div className="w-64 h-screen bg-gray-100 p-4">  {/* Sidebar fixed width, full height */}
+    <div className="w-64 h-screen bg-Sidebar p-4">  {/* Sidebar fixed width, full height */}
        <div className="mb-8">
-        <h2 className="text-2xl font-extrabold text-center text-gray-800">
+        <h2 className="text-2xl font-extrabold text-center text-foreground">
           Dashboard
         </h2>
        
@@ -51,8 +51,7 @@ export function AppSidebar() {
         {sidebarMenu.map((item) => (    
           <Link key={item.label} href={item.href}>
             <Button variant="ghost"  className="justify-start w-full
-               transition-transform duration-200
-               hover:translate-x-1 hover:text-blue-600 hover:-translate-y-0.5 hover:scale-105 border-transparent hover:border-blue-600 rounded-lg">
+               border-border hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer rounded-lg">
               <item.icon className="mr-2 h-5 w-5" />
               {item.label}
             </Button>
