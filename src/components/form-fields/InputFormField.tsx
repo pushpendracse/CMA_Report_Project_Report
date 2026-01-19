@@ -9,13 +9,17 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { FieldValues, Control, Path } from "react-hook-form";
+import { Textarea } from "../ui/textarea";
+import { cn } from "@/lib/utils";
 
 interface FormFieldProps<T extends FieldValues> {
   control: Control<T>;
   name: Path<T>;
   label: string;
   placeholder?: string;
-  type?: "text" | "email" | "password";
+  className?: string;
+  wrapperClassName?: string,
+  type?: "text" | "email" | "password" | "textarea";
 }
 
 const InputFormField = <T extends FieldValues>({
@@ -23,6 +27,8 @@ const InputFormField = <T extends FieldValues>({
   name,
   label,
   placeholder,
+  className,
+  wrapperClassName,
   type = "text",
 }: FormFieldProps<T>) => {
   return (
@@ -30,16 +36,24 @@ const InputFormField = <T extends FieldValues>({
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className={wrapperClassName}>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Input
-              placeholder={placeholder}
-              type={type}
-              {...field}
-            />
+            {type === "textarea" ? (
+              <Textarea
+                {...field}
+                placeholder={placeholder}
+                className={cn("min-h-[120px] resize-none", className)}
+              />
+            ) : (
+              <Input
+                {...field}
+                placeholder={placeholder}
+                className={className}
+              />
+            )}
           </FormControl>
-          <FormMessage className="text-xs"/>
+          <FormMessage className="text-xs" />
         </FormItem>
       )}
     />
