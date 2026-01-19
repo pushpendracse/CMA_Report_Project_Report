@@ -1,6 +1,6 @@
-import { AppSidebar } from "@/components/layout/AppSidebar";
-import DashboardHeader from "./DashboardHeader";
-import DashboardStats from "./DashboardStats";
+import { AppSidebar } from "@/components/sidebar/AppSidebar";
+import DashboardHeader from "../../components/dashboard/DashboardHeader";
+import DashboardStats from "../../components/dashboard/DashboardStats";
 
 
 export default function dashboard() {
@@ -8,7 +8,7 @@ export default function dashboard() {
 
     <div className="flex">
       <AppSidebar />
-      <div className="flex-1 p-4">
+      <div className="flex-1 p-1">
         <DashboardHeader />
         <DashboardStats />
         
