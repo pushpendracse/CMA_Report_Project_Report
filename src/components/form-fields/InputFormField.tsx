@@ -18,7 +18,8 @@ interface FormFieldProps<T extends FieldValues> {
   label: string;
   placeholder?: string;
   className?: string;
-  wrapperClassName?: string,
+  labelClassName?: string;
+  wrapperClassName?: string;
   type?: "text" | "email" | "password" | "textarea";
 }
 
@@ -29,6 +30,7 @@ const InputFormField = <T extends FieldValues>({
   placeholder,
   className,
   wrapperClassName,
+  labelClassName,
   type = "text",
 }: FormFieldProps<T>) => {
   return (
@@ -37,13 +39,13 @@ const InputFormField = <T extends FieldValues>({
       name={name}
       render={({ field }) => (
         <FormItem className={wrapperClassName}>
-          <FormLabel>{label}</FormLabel>
+          <FormLabel className={labelClassName}>{label}</FormLabel>
           <FormControl>
             {type === "textarea" ? (
               <Textarea
                 {...field}
                 placeholder={placeholder}
-                className={cn("min-h-[120px] resize-none", className)}
+                className={cn("min-h-[300px] resize-none", className)}
               />
             ) : (
               <Input

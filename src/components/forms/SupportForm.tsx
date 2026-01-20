@@ -41,7 +41,7 @@ export default function SignUpForm() {
     }
   }
   return (
-    <Card className="w-full max-w-lg bg-card shadow-lg border-border">
+    <Card className="w-full max-w-3xl h-full bg-card shadow-lg border-border rounded-[4px]">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-bold text-center text-foreground">Contact Us</CardTitle>
       </CardHeader>
@@ -49,18 +49,22 @@ export default function SignUpForm() {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="grid grid-cols-2 gap-4"
+            className="grid grid-cols-2 gap-6"
           >
             <InputFormField
               wrapperClassName="col-span-2"
+              className="py-6 px-3 rounded-none"
+              labelClassName="font-medium"
               control={form.control}
               name="name"
-              label="Full Name"
+              label="FULL NAME"
               placeholder="John Doe"
             />
 
             <InputFormField
               control={form.control}
+              className="py-6 px-3 rounded-none"
+              labelClassName="font-medium"
               name="email"
               label="Email"
               placeholder="name@example.com"
@@ -68,6 +72,8 @@ export default function SignUpForm() {
 
             <InputFormField
               control={form.control}
+              className="py-6 px-3 rounded-none"
+              labelClassName="font-medium"
               name="phoneNumber"
               label="Phone Number"
               placeholder="+91 8329493953"
@@ -75,6 +81,8 @@ export default function SignUpForm() {
 
             <InputFormField
               wrapperClassName="col-span-2"
+              className="py-6 px-3 rounded-none"
+              labelClassName="font-medium"
               control={form.control}
               name="message"
               label="Message"
@@ -86,7 +94,7 @@ export default function SignUpForm() {
             <Button
               type="submit"
               variant="default"
-              className=" col-span-2 w-full py-6 font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity cursor-pointer"
+              className="rounded-none col-span-2 w-full py-6 font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity cursor-pointer"
               disabled={isLoading}
             >
               {isLoading && <Loader2 className="animate-spin" />}
