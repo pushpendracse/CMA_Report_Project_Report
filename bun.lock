@@ -1,10 +1,5 @@
 {
   "lockfileVersion": 1,
-<<<<<<< Updated upstream
-  "configVersion": 1,
-=======
-  "configVersion": 0,
->>>>>>> Stashed changes
   "workspaces": {
     "": {
       "name": "reports",

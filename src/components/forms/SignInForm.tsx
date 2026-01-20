@@ -21,15 +21,15 @@ import { toast } from "sonner";
 export default function SignInForm() {
  const searchParams = useSearchParams();
  const nextParam = searchParams.get("next");
-        const [isLoading, setIsLoading] = useState(false);
-        const form = useForm<z.infer<typeof signInSchema>>({
-    resolver: zodResolver(signInSchema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-    mode: "onBlur",
-  });
+ const [isLoading, setIsLoading] = useState(false);
+ const form = useForm<z.infer<typeof signInSchema>>({
+  resolver: zodResolver(signInSchema),
+  defaultValues: {
+   email: "",
+   password: "",
+  },
+  mode: "onBlur",
+ });
 
  async function onSubmit(values: z.infer<typeof signInSchema>) {
   try {
@@ -43,9 +43,8 @@ export default function SignInForm() {
    console.error(error);
   } finally {
    setIsLoading(false);
-  
-  
-  }}
+  }
+ }
 
  return (
   <Card className="w-full max-w-md bg-card shadow-lg border-border">
@@ -63,57 +62,57 @@ export default function SignInForm() {
      </Button>
     </div>
 
-        <div className="relative">
-          <div className="absolute inset-0 flex items-center">
-            <Separator className="w-full" />
-          </div>
-          <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-card px-2 text-muted-foreground text-[10px]">Or continue with email</span>
-          </div>
-        </div>
+    <div className="relative">
+     <div className="absolute inset-0 flex items-center">
+      <Separator className="w-full" />
+     </div>
+     <div className="relative flex justify-center text-xs uppercase">
+      <span className="bg-card px-2 text-muted-foreground text-[10px]">Or continue with email</span>
+     </div>
+    </div>
 
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="grid gap-4"
-          >
-            <InputFormField
-              control={form.control}
-              name="email"
-              label="Email"
-              placeholder="name@example.com"
-            />
+    <Form {...form}>
+     <form
+      onSubmit={form.handleSubmit(onSubmit)}
+      className="grid gap-4"
+     >
+      <InputFormField
+       control={form.control}
+       name="email"
+       label="Email"
+       placeholder="name@example.com"
+      />
 
-            <InputFormField
-              control={form.control}
-              name="password"
-              label="Password"
-              placeholder="••••••••"
-            />
+      <InputFormField
+       control={form.control}
+       name="password"
+       label="Password"
+       placeholder="••••••••"
+      />
 
-            {/* Forgot password */}
-            <Link href="/forgot-password" className="text-sm text-primary hover:underline font-medium">
-              Forgot password?
-            </Link>
+      {/* Forgot password */}
+      <Link href="/forgot-password" className="text-sm text-primary hover:underline font-medium">
+       Forgot password?
+      </Link>
 
-            <Button type="submit" variant="default" className="w-full py-6 font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity cursor-pointer">
-              <FaSignInAlt className="text-2xl" />
-              Sign in
-            </Button>
-          </form>
-        </Form>
-      </CardContent>
-      <CardFooter className="flex flex-wrap items-center justify-center gap-2">
-        <div className="text-sm text-muted-foreground">
-          Don't have an account?{" "}
-          <Link
-            href="/sign-up"
-            className="text-primary hover:underline font-medium"
-          >
-            Sign up
-          </Link>
-        </div>
-      </CardFooter>
-    </Card>
-  );
+      <Button type="submit" variant="default" className="w-full py-6 font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity cursor-pointer">
+       <FaSignInAlt className="text-2xl" />
+       Sign in
+      </Button>
+     </form>
+    </Form>
+   </CardContent>
+   <CardFooter className="flex flex-wrap items-center justify-center gap-2">
+    <div className="text-sm text-muted-foreground">
+     Don't have an account?{" "}
+     <Link
+      href="/sign-up"
+      className="text-primary hover:underline font-medium"
+     >
+      Sign up
+     </Link>
+    </div>
+   </CardFooter>
+  </Card>
+ );
 }

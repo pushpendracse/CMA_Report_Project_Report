@@ -28,7 +28,7 @@ export default function SignUpForm() {
  const form = useForm<z.infer<typeof signUpSchema>>({
   resolver: zodResolver(signUpSchema),
   defaultValues: {
-   fullName: "",
+   name: "",
    email: "",
    password: "",
    confirmPassword: "",
@@ -54,7 +54,7 @@ export default function SignUpForm() {
   } finally {
    setIsLoading(false);
   }
-
+ }
  return (
   <Card className="w-full max-w-lg bg-card shadow-lg border-border">
    <CardHeader className="space-y-1">
@@ -71,80 +71,80 @@ export default function SignUpForm() {
      </Button>
     </div>
 
-        <div className="relative">
-          <div className="absolute inset-0 flex items-center">
-            <Separator className="w-full" />
-          </div>
-          <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-card px-2 text-muted-foreground text-[10px]">Or continue with email</span>
-          </div>
-        </div>
+    <div className="relative">
+     <div className="absolute inset-0 flex items-center">
+      <Separator className="w-full" />
+     </div>
+     <div className="relative flex justify-center text-xs uppercase">
+      <span className="bg-card px-2 text-muted-foreground text-[10px]">Or continue with email</span>
+     </div>
+    </div>
 
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="grid gap-4"
-          >
-            <InputFormField
-              control={form.control}
-              name="fullName"
-              label="Full Name"
-              placeholder="John Doe"
-            />
+    <Form {...form}>
+     <form
+      onSubmit={form.handleSubmit(onSubmit)}
+      className="grid gap-4"
+     >
+      <InputFormField
+       control={form.control}
+       name="name"
+       label="Full Name"
+       placeholder="John Doe"
+      />
 
-            <InputFormField
-              control={form.control}
-              name="email"
-              label="Email"
-              placeholder="name@example.com"
-            />
+      <InputFormField
+       control={form.control}
+       name="email"
+       label="Email"
+       placeholder="name@example.com"
+      />
 
-            <InputFormField
-              control={form.control}
-              name="password"
-              label="Password"
-              placeholder="••••••••"
-            />
+      <InputFormField
+       control={form.control}
+       name="password"
+       label="Password"
+       placeholder="••••••••"
+      />
 
-            <InputFormField
-              control={form.control}
-              name="confirmPassword"
-              label="Confirm Password"
-              placeholder="••••••••"
-            />
+      <InputFormField
+       control={form.control}
+       name="confirmPassword"
+       label="Confirm Password"
+       placeholder="••••••••"
+      />
 
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                id="termsAndConditions"
-                className="cursor-pointer"
-                checked={termsAndConditions}
-                onCheckedChange={(checked) => setTermsAndConditions(checked === true)}
-              />
-              <Label
-                htmlFor="termsAndConditions"
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
-              >
-                I agree to the <Link href="/terms-and-conditions" className="text-primary hover:underline font-medium">Terms of Service</Link> and <Link href="/privacy-policy" className="text-primary hover:underline font-medium">Privacy Policy</Link>
-              </Label>
-            </div>
+      <div className="flex items-center space-x-2">
+       <Checkbox
+        id="termsAndConditions"
+        className="cursor-pointer"
+        checked={termsAndConditions}
+        onCheckedChange={(checked) => setTermsAndConditions(checked === true)}
+       />
+       <Label
+        htmlFor="termsAndConditions"
+        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
+       >
+        I agree to the <Link href="/terms-and-conditions" className="text-primary hover:underline font-medium">Terms of Service</Link> and <Link href="/privacy-policy" className="text-primary hover:underline font-medium">Privacy Policy</Link>
+       </Label>
+      </div>
 
-            <Button type="submit" variant="default" className="w-full py-6 font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity cursor-pointer">
-              Create Account
-            </Button>
-          </form>
-        </Form>
-      </CardContent>
-      <CardFooter className="flex flex-wrap items-center justify-center gap-2">
-        <div className="text-sm text-muted-foreground">
-          Already have an account?{" "}
-          <Link
-            href="/sign-in"
-            className="text-primary hover:underline font-medium"
-          >
-            Sign in
-          </Link>
-        </div>
-      </CardFooter>
-    </Card>
-  );
+      <Button type="submit" variant="default" className="w-full py-6 font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity cursor-pointer">
+       Create Account
+      </Button>
+     </form>
+    </Form>
+   </CardContent>
+   <CardFooter className="flex flex-wrap items-center justify-center gap-2">
+    <div className="text-sm text-muted-foreground">
+     Already have an account?{" "}
+     <Link
+      href="/sign-in"
+      className="text-primary hover:underline font-medium"
+     >
+      Sign in
+     </Link>
+    </div>
+   </CardFooter>
+  </Card>
+ );
 }
