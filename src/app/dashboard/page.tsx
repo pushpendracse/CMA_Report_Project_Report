@@ -10,6 +10,8 @@ import DashboardTabs from "@/components/dashboard/DashboardTabs";
 import DashboardSearch from "@/components/dashboard/DashboardSearch";
 import DashboardCreateReportButton from "@/components/dashboard/DashboardCreateReportButton";
 import ReportsKPI from "@/components/dashboard/ReportsKPI";
+import DashboardHeader from "@/components/dashboard/DashboardHeader";
+import DashboardStats from "@/components/dashboard/DashboardStats";
 
 // Tables
 import ProjectReports from "@/components/dashboard/ProjectReports";
@@ -97,6 +99,7 @@ export default function DashboardPage() {
             <CMAReports reports={data.cmaReports} />
           )}
         </div>
+             
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ export default function ProjectReports({
               </thead>
 
               <tbody>
-                {reports.length > 0 ? (
+                {reports?.length > 0 ? (
                   reports.map((report) => (
                     <tr key={report.id} className="border-b">
                       <td className="px-4 py-3 font-medium">
